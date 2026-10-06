@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Little Book of Dalida</title>
+<meta name="theme-color" content="#FBF6EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;500;600&family=Readex+Pro:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-locked">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8 5.7 21.5l1.7-7.3L2 9.5l7.1-.6z"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/></symbol>
+  <symbol id="flower" viewBox="0 0 24 24"><circle cx="12" cy="6" r="4"/><circle cx="18" cy="12" r="4"/><circle cx="12" cy="18" r="4"/><circle cx="6" cy="12" r="4"/><circle cx="12" cy="12" r="3" fill="#E6D3A3"/></symbol>
+  <symbol id="balloon" viewBox="0 0 24 24"><ellipse cx="12" cy="9" rx="7" ry="8"/><path d="M12 17c-1 3 1 4 0 6" fill="none" stroke="currentColor" stroke-width="1"/></symbol>
+</svg>
+
+<div class="cover" id="cover">
+  <p class="cover__once">Once upon a little girl...</p>
+  <h1 class="cover__name">Dalida</h1>
+  <p class="cover__sub">Her first two magical years</p>
+  <p class="cover__date" id="coverDate"></p>
+  <button class="btn" id="openBook" type="button">Open Dalida's Story </button>
+  <p class="cover__err" id="coverErr" role="alert" hidden>الأغنية لازم تشتغل الأول عشان الكتاب يتفتح. اتأكد إن ملف music.mp3 موجود وجرّب تاني.</p>
+</div>
+
+<button class="music" id="music" type="button" aria-pressed="false" aria-label="Play music">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path id="musicIcon" d="M8 5v14l11-7z"/></svg>
+</button>
+
+<nav class="nav" aria-label="Book chapters">
+  <a href="#story"><b>01</b> Story</a>
+  <a href="#memories"><b>02</b> Memories</a>
+  <a href="#little"><b>03</b> Little Things</a>
+  <a href="#bigday"><b>04</b> Birthday</a>
+</nav>
+
+<main>
+  <header class="hero" id="story">
+    <div class="hero__photo reveal">
+      <svg class="deco d1 twinkle"><use href="#star"/></svg>
+      <svg class="deco d2" style="color:var(--rose)"><use href="#heart"/></svg>
+      <svg class="deco d3" style="color:var(--peach)"><use href="#flower"/></svg>
+      <figure class="frame"><img id="heroImg" alt="Dalida smiling" width="800" height="1000"></figure>
+    </div>
+    <h2 class="hero__name" id="heroName"></h2>
+    <p class="hero__line" id="heroLine"></p>
+    <p class="ar" id="heroAr" lang="ar" dir="rtl"></p>
+  </header>
+
+  <section id="chapters" aria-label="The story"></section>
+
+  <section class="album" id="memories" aria-labelledby="albumTitle">
+    <h2 id="albumTitle">Pages from Dalida's Little Album</h2>
+    <ul class="scrap" id="scrap"></ul>
+  </section>
+
+  <section class="little" id="little" aria-labelledby="littleTitle">
+    <h2 id="littleTitle">Little things we love about you</h2>
+    <ul id="things"></ul>
+  </section>
+
+  <section class="age" aria-label="Dalida's age">
+    <p class="age__years" id="ageYears"></p>
+    <dl>
+      <div><dd id="ageMonths"></dd><dt>months</dt></div>
+      <div><dd id="ageWeeks"></dd><dt>weeks</dt></div>
+      <div><dd id="ageDays"></dd><dt>days</dt></div>
+    </dl>
+  </section>
+
+  <section class="bigday" id="bigday" aria-labelledby="bigTitle">
+    <svg class="deco d1 twinkle"><use href="#star"/></svg>
+    <svg class="deco d2" style="color:var(--rose)"><use href="#balloon"/></svg>
+    <svg class="deco d3" style="color:var(--peach)"><use href="#flower"/></svg>
+    <p class="kicker">The last page</p>
+    <h2 id="bigTitle">The big day</h2>
+    <p class="two" id="num2" aria-hidden="true">2</p>
+    <div id="countdown">
+      <p class="sleeps" id="sleeps"></p>
+      <div class="clock" role="timer" aria-label="Countdown to Dalida's second birthday">
+        <div><b id="cdDays">0</b><span>days</span></div>
+        <div><b id="cdHours">00</b><span>hours</span></div>
+        <div><b id="cdMinutes">00</b><span>minutes</span></div>
+        <div><b id="cdSeconds">00</b><span>seconds</span></div>
+      </div>
+      <p class="ar" lang="ar" dir="rtl">فاضل شوية ونحتفل بداليدا وهي بتكمل سنتين </p>
+    </div>
+    <div id="party" hidden>
+      <p class="cake" aria-hidden="true">🎂</p>
+      <h3>Happy 2nd Birthday, Dalida!</h3>
+      <p class="ar" lang="ar" dir="rtl">داليدا كملت سنتين! 🎂</p>
+    </div>
+    <p class="bigdate" id="bigDate"></p>
+    <p class="message" id="message"></p>
+  </section>
+</main>
+
+<footer class="end">
+  <p class="end__line">Two little years down...<br>A lifetime of beautiful moments ahead.</p>
+  <p class="end__name">Dalida </p>
+  <p>Happy 2nd Birthday</p>
+  <p class="sign">DEVELOPED BY HAMZA.</p>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <img id="lbImg" alt="">
+  <p class="lightbox__cap" id="lbCap"></p>
+  <div class="lightbox__bar">
+    <button type="button" class="btn btn--quiet" id="lbPrev">Previous</button>
+    <button type="button" class="btn btn--quiet" id="lbClose">Close</button>
+    <button type="button" class="btn btn--quiet" id="lbNext">Next</button>
+  </div>
+</dialog>
+
+<div id="fx" aria-hidden="true"></div>
+<audio id="audio" src="music.mp3" loop preload="auto"></audio>
+<script src="app.js"></script>
+</body>
+</html>
